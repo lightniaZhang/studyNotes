@@ -1,39 +1,43 @@
 ## 全局配置
+
 Vue.config 是一个对象，包含 Vue 的全局配置。可以在启动应用之前修改下列 property：
 
 ```javascript
 Vue.config = {
   silent: false, // Boolean类型，默认false，取消所有日志与警告
-  
-}
+  optionMergeStrategies:,//??
+  devtools: false, // 配置是否允许 vue-devtools 检查代码。开发版本默认为 true，生产版本默认为 false。生产版本设为 true 可以启用检查
+
+
+};
 ```
 
-
 ### # silent
+
 - **类型**：`boolean`
 - **默认值**：`false`
 - **用法**：
 
 ```javascript
-Vue.config.silent = true
+Vue.config.silent = true;
 ```
 
-取消 Vue 所有的日志与警告。  
-  
+取消 Vue 所有的日志与警告。
 
 ### # optionMergeStrategies
+
 - **类型**：`{ [key: string]: Function }`
 - **默认值**：`{}`
 - **用法**：
 
 ```javascript
 Vue.config.optionMergeStrategies._my_option = function (parent, child, vm) {
-  return child + 1
-}
+  return child + 1;
+};
 
 const Profile = Vue.extend({
-  _my_option: 1
-})
+  _my_option: 1,
+});
 
 // Profile.options._my_option = 2
 ```
@@ -45,18 +49,20 @@ const Profile = Vue.extend({
 参考自定义选项的混入策略
 
 ### # devtools
+
 - **类型**：`boolean`
 - **默认值**：`true (生产版为 false)`
 - **用法**：
 
 ```javascript
 // 务必在加载 Vue 之后，立即同步设置以下内容
-Vue.config.devtools = true
+Vue.config.devtools = true;
 ```
 
 配置是否允许 vue-devtools 检查代码。开发版本默认为 true，生产版本默认为 false。生产版本设为 true 可以启用检查。
 
 ### # errorHandler
+
 - **类型**：`Function`
 - **默认值**：`undefined`
 - **用法**：
@@ -66,7 +72,7 @@ Vue.config.errorHandler = function (err, vm, info) {
   // handle error
   // `info` 是 Vue 特定的错误信息，比如错误所在的生命周期钩子
   // 只在 2.2.0+ 可用
-}
+};
 ```
 
 指定组件的渲染和观察期间未捕获错误的处理函数。这个处理函数被调用时，可获取错误信息和 Vue 实例。
@@ -80,6 +86,7 @@ Vue.config.errorHandler = function (err, vm, info) {
 错误追踪服务 Sentry 和 Bugsnag 都通过此选项提供了官方支持。
 
 ### # warnHandler
+
 `2.4.0 新增`
 
 - **类型**：`Function`
@@ -88,7 +95,7 @@ Vue.config.errorHandler = function (err, vm, info) {
 用法：
 
 Vue.config.warnHandler = function (msg, vm, trace) {
-  // `trace` 是组件的继承关系追踪
+// `trace` 是组件的继承关系追踪
 }
 为 Vue 的运行时警告赋予一个自定义处理函数。注意这只会在开发者环境下生效，在生产环境下它会被忽略。
 
@@ -100,11 +107,11 @@ ignoredElements
 用法：
 
 Vue.config.ignoredElements = [
-  'my-custom-web-component',
-  'another-web-component',
-  // 用一个 `RegExp` 忽略所有“ion-”开头的元素
-  // 仅在 2.5+ 支持
-  /^ion-/
+'my-custom-web-component',
+'another-web-component',
+// 用一个 `RegExp` 忽略所有“ion-”开头的元素
+// 仅在 2.5+ 支持
+/^ion-/
 ]
 须使 Vue 忽略在 Vue 之外的自定义元素 (e.g. 使用了 Web Components APIs)。否则，它会假设你忘记注册全局组件或者拼错了组件名称，从而抛出一个关于 Unknown custom element 的警告。
 
@@ -116,13 +123,13 @@ keyCodes
 用法：
 
 Vue.config.keyCodes = {
-  v: 86,
-  f1: 112,
-  // camelCase 不可用
-  mediaPlayPause: 179,
-  // 取而代之的是 kebab-case 且用双引号括起来
-  "media-play-pause": 179,
-  up: [38, 87]
+v: 86,
+f1: 112,
+// camelCase 不可用
+mediaPlayPause: 179,
+// 取而代之的是 kebab-case 且用双引号括起来
+"media-play-pause": 179,
+up: [38, 87]
 }
 <input type="text" @keyup.media-play-pause="method">
 给 v-on 自定义键位别名。
