@@ -1,11 +1,3 @@
-<!--
- * @Author: 张远洪 zhyuanh@szlanyou.com
- * @Date: 2023-06-19 09:47:29
- * @LastEditors: 张远洪 zhyuanh@szlanyou.com
- * @LastEditTime: 2023-07-07 14:01:29
- * @FilePath: \笔记\studyNotes\前端\Javascript\ES6基础系列\ES6基础.md
- * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
--->
 ## Symbol
 
 1.Symbol 是 es6 引入的新的原始数据类型，表示独一无二的值。Symbol 值通过`Symbol`函数生成。这就是说，对象的属性名现在可以有两种类型，一种是原来就有的字符串，另一种就是新增的 Symbol 类型。凡是属性名属于 Symbol 类型，就都是独一无二的，可以保证不会与其他属性名产生冲突。

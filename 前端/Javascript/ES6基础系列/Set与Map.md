@@ -163,3 +163,6 @@ const ws = new WeakSet();
 ws.add(obj1).add(obj2);
 ws.has(obj1);// true
 ```
+
+### 3.Map
+
